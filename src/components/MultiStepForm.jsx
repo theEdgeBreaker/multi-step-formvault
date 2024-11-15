@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -22,26 +22,28 @@ const MultiStepForm = () => {
   const handleSubmit = () => setStep(4);
 
   return (
-    <div>
-      {step === 1 && (
-        <Step1
-          formData={formData}
-          handleChange={handleChange}
-          handleNext={handleNext}
-        />
-      )}
-      {step === 2 && (
-        <Step2
-          formData={formData}
-          handleChange={handleChange}
-          handleNext={handleNext}
-          handleBack={handleBack}
-        />
-      )}
-      {step === 3 && (
-        <Step3 handleSubmit={handleSubmit} handleBack={handleBack} />
-      )}
-      {step === 4 && <Summary formData={formData} />}
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
+        {step === 1 && (
+          <Step1
+            formData={formData}
+            handleChange={handleChange}
+            handleNext={handleNext}
+          />
+        )}
+        {step === 2 && (
+          <Step2
+            formData={formData}
+            handleChange={handleChange}
+            handleNext={handleNext}
+            handleBack={handleBack}
+          />
+        )}
+        {step === 3 && (
+          <Step3 handleSubmit={handleSubmit} handleBack={handleBack} />
+        )}
+        {step === 4 && <Summary formData={formData} />}
+      </div>
     </div>
   );
 };

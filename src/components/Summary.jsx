@@ -1,7 +1,9 @@
+import React from "react";
+
 const Summary = ({ formData }) => {
   return (
     <div>
-      <h2>Summary</h2>
+      <h2 className="text-2xl font-bold mb-4">Summary</h2>
       <p>
         <strong>Name:</strong> {formData.firstName} {formData.lastName}
       </p>
