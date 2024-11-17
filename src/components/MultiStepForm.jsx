@@ -19,7 +19,6 @@ const MultiStepForm = () => {
   const handleBack = () => setStep((prevStep) => prevStep - 1);
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = () => setStep(4);
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -40,7 +39,10 @@ const MultiStepForm = () => {
           />
         )}
         {step === 3 && (
-          <Step3 handleSubmit={handleSubmit} handleBack={handleBack} />
+          <Step3
+            handleSubmit={() => setStep(4)} // Move to the Summary
+            handleBack={handleBack}
+          />
         )}
         {step === 4 && <Summary formData={formData} />}
       </div>
